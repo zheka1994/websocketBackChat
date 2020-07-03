@@ -4,10 +4,10 @@
   "description": "web socket backend",
   "main": "dist/server.js",
   "scripts": {
-    "prebuild": "tslint -c tslint.json -p tsconfig.json --fix",
-    "build": "tsc",
-    "prestart": "npm run build",
-    "start": "node ."
+    "lint": "tslint -c tslint.json -p tsconfig.json --fix",
+    "compile": "tsc",
+    "build-server": "webpack --config webpack.server.config.js --mode production",
+    "start-server": "node ."
   },
   "repository": {
     "type": "git",
@@ -20,13 +20,30 @@
   },
   "homepage": "https://github.com/zheka1994/websocketBackChat#readme",
   "dependencies": {
-    "express": "^4.17.1"
+    "@types/react": "^16.9.41",
+    "@types/react-dom": "^16.9.8",
+    "@types/react-router-dom": "^5.1.5",
+    "express": "^4.17.1",
+    "express-ws": "^4.0.0",
+    "pg": "^8.2.1",
+    "sequelize": "^6.2.4"
   },
   "devDependencies": {
+    "@babel/core": "^7.10.4",
+    "@babel/node": "^7.10.4",
+    "@babel/preset-env": "^7.10.4",
+    "@babel/preset-typescript": "^7.10.4",
     "@types/express": "^4.17.6",
+    "@types/express-ws": "^3.0.0",
     "@types/node": "^14.0.14",
+    "@types/webpack-env": "^1.15.2",
+    "babel-loader": "^8.1.0",
+    "copy-webpack-plugin": "^6.0.3",
     "rimraf": "^3.0.2",
     "tslint": "^6.1.2",
-    "typescript": "^3.9.5"
+    "typescript": "^3.9.5",
+    "webpack": "^4.43.0",
+    "webpack-cli": "^3.3.12",
+    "webpack-node-externals": "^1.7.2"
   }
 }

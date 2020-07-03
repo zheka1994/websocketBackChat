@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Веб сокет пример</title>
+    </head>
+    <body>
+        <script>
+            let socket = new WebSocket("ws://localhost:8080/chat");
+
+            socket.onopen = function (e) {
+                alert("Соединение установлено");
+            }
+
+        </script>
+    </body>
+</html>

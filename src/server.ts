@@ -1,14 +1,17 @@
 import express from "express";
-import chatRouter from "./routes/chatRouter";
+import expressWs from "express-ws";
 
-const app: express.Application = express();
-const port: number = 8080;
+import chatRouter from "./server/routes/chatRouter";
 
+const app = expressWs(express()).app;
+app.use(express.static("static"));
 app.use("/", chatRouter);
+app.ws("/", (ws, req) => {
+    ws.on("message", (msg) => {
+        console.log(msg);
+    })
+})
 
-app.listen(port, () => {
-    console.log(`App started on port ${port}`);
+app.listen(8080, () => {
+    console.log("App started");
 });
-
-// TODO добавить гит игнор
-// сделать автоматический запуск скриптов и node mons
